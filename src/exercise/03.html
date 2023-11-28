@@ -9,12 +9,16 @@
   
   <script type="text/babel">
 
-    const className = "container"
-    const greeting = "Hello"
-    const subject = "World"
+    const className = 'container'
+    const greeting = 'Hello'
+    const subject = 'World'
     const message = `${greeting} ${subject}`   
+    const children = [greeting, subject]
+    const props = {className, children}
+
+    console.log({id: 'blah', ...props})
     
-    const jsxElement = <div className={className}>{message}</div>
+    const jsxElement = <div {...props} />
 
     ReactDOM.createRoot(document.getElementById('root')).render(jsxElement)
   </script>
