@@ -4,20 +4,26 @@
 import * as React from 'react'
 
 function UsernameForm({onSubmitUsername}) {
-  const [error, setError] = React.useState(null)
+  //const [error, setError] = React.useState(null)
   const inputRef = React.useRef()
+  const [username, setUsername] = React.useState('')
 
   function handleSubmit(event) {
     event.preventDefault()
-    const username = inputRef.current.value
     onSubmitUsername(username)
   }
 
   function handleChange(event) {
-    const inputValue = event.target.value
-    const error = inputValue !== inputValue.toLowerCase() // why is this a const if it can be changed?>
-    setError(error ? 'Username must be lowercase' : null)
+    const inputValue = event.target.value.toLowerCase()
+    setUsername(inputValue)
   }
+
+  // his example...
+  // function handleChange(event) {
+  //
+  //   const {value} = event.target
+  //   setUsername(value.toLowerCase())
+  // }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -26,16 +32,11 @@ function UsernameForm({onSubmitUsername}) {
         <input
           id="usernameInput"
           type="text"
-          ref={inputRef}
           onChange={handleChange}
+          value={username}
         />
       </div>
-      <div role="alert" style={{color: 'red'}}>
-        {error}
-      </div>
-      <button disabled={Boolean(error)} type={'submit'}>
-        Submit
-      </button>
+      <button type={'submit'}>Submit</button>
     </form>
   )
 }
