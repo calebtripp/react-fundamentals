@@ -4,10 +4,23 @@
 import * as React from 'react'
 import '../box-styles.css'
 
+// todo original box, works for xc 1
+// function Box(props) {
+//   return (
+//     <div
+//       className={`box ${props.className}`}
+//       style={{...props.style, fontStyle: 'italic'}}
+//     >
+//       {props.children}
+//     </div>
+//   )
+// }
+
 function Box(props) {
+  // works for xc2 test.
   return (
     <div
-      className={`box ${props.className}`}
+      className={`box box--${props.size}`}
       style={{...props.style, fontStyle: 'italic'}}
     >
       {props.children}
@@ -23,23 +36,23 @@ function Box(props) {
 //   },
 //   'small lightblue box two',
 // )
-
-const smallBoxFour = Box({
-  // this works.
-  className: 'box box--small',
-  style: {backgroundColor: 'lightblue', fontStyle: 'italic'},
-  children: 'small lightblue box 4',
-})
-
-const smallBox = // this works.
-  (
-    <div
-      className={'box box--small'}
-      style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}
-    >
-      small lightblue box
-    </div>
-  )
+//
+// const smallBoxFour = Box({
+//   // this works.
+//   className: 'box box--small',
+//   style: {backgroundColor: 'lightblue', fontStyle: 'italic'},
+//   children: 'small lightblue box 4',
+// })
+//
+// const smallBox = // this works.
+//   (
+//     <div
+//       className={'box box--small'}
+//       style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}
+//     >
+//       small lightblue box
+//     </div>
+//   )
 const mediumBox = (
   <div
     className={'box box--medium'}
@@ -57,16 +70,35 @@ const largeBox = (
   </div>
 )
 // this is the test for the exercise and produces as intended.
-const element = (
-  <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
-    small lightblue Box component test
+// const element = (
+//   <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
+//     small lightblue Box component test
+//   </Box>
+// )
+
+//this is a test for xc2
+const boxXC2Test = (
+  <Box size="small" style={{backgroundColor: 'lightblue'}}>
+    small lightblue box xc2 test
+  </Box>
+)
+
+const boxXC2MediumTest = (
+  <Box size="medium" style={{backgroundColor: 'pink'}}>
+    medium pink box xc2 test
+  </Box>
+)
+
+const boxXC2LargeTest = (
+  <Box size="large" style={{backgroundColor: 'orange'}}>
+    large orange box xc2 test
   </Box>
 )
 
 function App() {
   return (
     <div>
-      {smallBox}
+      {/*{smallBox}*/}
       {/*{smallBoxTwo} this does not work. */}
       {/*{Box( this does not work.*/}
       {/*  'box box--small',*/}
@@ -76,15 +108,18 @@ function App() {
       {/*  },*/}
       {/*  'small lightblue box two',*/}
       {/*)}*/}
-      {Box({
-        className: 'box box--small',
-        style: {backgroundColor: 'lightblue', fontStyle: 'italic'},
-        children: 'small lightblue box 3',
-      })}
-      {smallBoxFour}
-      {element}
-      {mediumBox}
-      {largeBox}
+      {/*{Box({*/}
+      {/*  className: 'box box--small',*/}
+      {/*  style: {backgroundColor: 'lightblue', fontStyle: 'italic'},*/}
+      {/*  children: 'small lightblue box 3',*/}
+      {/*})}*/}
+      {/*{smallBoxFour}*/}
+      {boxXC2Test}
+      {boxXC2MediumTest}
+      {boxXC2LargeTest}
+      {/*{element}*/}
+      {/*{mediumBox}*/}
+      {/*{largeBox}*/}
     </div>
   )
 }
