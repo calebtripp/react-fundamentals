@@ -6,7 +6,10 @@ import '../box-styles.css'
 
 function Box(props) {
   return (
-    <div className={`box ${props.className}`} style={props.style}>
+    <div
+      className={`box ${props.className}`}
+      style={{...props.style, fontStyle: 'italic'}}
+    >
       {props.children}
     </div>
   )
@@ -56,7 +59,7 @@ const largeBox = (
 // this is the test for the exercise and produces as intended.
 const element = (
   <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
-    small lightblue box 5
+    small lightblue Box component test
   </Box>
 )
 
